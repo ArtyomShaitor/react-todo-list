@@ -2,7 +2,7 @@
 
 .todolist {
     background-color: white;
-    max-width: 500px;
+    max-width: $max-width;
     width: 100%;
     margin: 0 auto;
     box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.02);
@@ -19,6 +19,17 @@
         text-align: left;
         height: 40px;
         margin-bottom: 15px;
+
+        &:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: '\f067';
+            position: absolute;
+            color: rgba(0,0,0,0.07);
+            top: 50%;
+            transform: translateY(-50%);
+            left: 30px;
+            z-index: 100;
+        }
 
         &-input {
             line-height: 30px;
@@ -38,16 +49,6 @@
             right: 50px;
             border: 0;
             outline: none;
-
-            &:before {
-                font: normal normal normal 14px/1 FontAwesome;
-                content: '\f067';
-                position: absolute;
-                color: rgba(0,0,0,0.07);
-                top: 50%;
-                transform: translateY(-50%);
-                left: 30px;
-            }
 
             &::-webkit-input-placeholder {color: $todoListTextDoneColor;}
             &::-moz-placeholder          {color: $todoListTextDoneColor;}/* Firefox 19+ */
@@ -166,5 +167,13 @@
     &__container {
         overflow: auto;
         max-height: 390px;
+    }
+}
+
+
+@media (max-width: $max-width - 1) {
+
+    .todolist {
+        border-radius: 0px;
     }
 }
