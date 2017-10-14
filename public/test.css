@@ -15,7 +15,8 @@ body, html {
 
 .todolist {
   background-color: white;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
   -webkit-box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.02);
      -moz-box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.02);
@@ -34,17 +35,6 @@ body, html {
     text-align: left;
     height: 40px;
     margin-bottom: 15px; }
-    .todolist__new-todo:before {
-      font: normal normal normal 14px/1 FontAwesome;
-      content: '\f067';
-      position: absolute;
-      color: rgba(0, 0, 0, 0.07);
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-         -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-              transform: translateY(-50%);
-      left: 30px; }
     .todolist__new-todo-input {
       line-height: 30px;
       -webkit-box-sizing: border-box;
@@ -58,15 +48,27 @@ body, html {
       color: rgba(0, 0, 0, 0.6);
       font: inherit;
       top: 0;
-      left: 60px;
-      padding: 0;
-      width: 350px;
+      left: 0px;
+      padding: 0 0 0 60px;
+      width: 100%;
+      box-sizing: border-box;
       bottom: 0;
       right: 50px;
       border: 0;
       outline: none;
       /* Firefox 19+ */
       /* Firefox 18- */ }
+      .todolist__new-todo-input:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: '\f067';
+        position: absolute;
+        color: rgba(0, 0, 0, 0.07);
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+           -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+        left: 30px; }
       .todolist__new-todo-input::-webkit-input-placeholder {
         color: rgba(0, 0, 0, 0.1); }
       .todolist__new-todo-input::-moz-placeholder {
