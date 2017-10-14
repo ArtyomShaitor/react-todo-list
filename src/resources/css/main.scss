@@ -1,0 +1,19 @@
+@import "variables";
+
+body, html {
+    background-color: $bgColor;
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+
+    h1 {
+        color: #34495e;
+        font-weight: 500;
+        font-size: 36px;
+    }
+
+
+    .app {
+        padding-top: 150px;
+    }
+}

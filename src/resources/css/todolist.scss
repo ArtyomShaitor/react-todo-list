@@ -1,0 +1,168 @@
+@import "variables";
+
+.todolist {
+    background-color: white;
+    width: 500px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.02);
+    border-radius: 10px;
+    padding: 20px 0;
+    box-sizing: border-box;
+
+    &__empty-list-alert {
+        color: $todoListTextColor;
+    }
+
+    &__new-todo {
+        position: relative;
+        text-align: left;
+        height: 40px;
+        margin-bottom: 15px;
+
+        &:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: '\f067';
+            position: absolute;
+            color: rgba(0,0,0,0.07);
+            top: 50%;
+            transform: translateY(-50%);
+            left: 30px;
+        }
+
+        &-input {
+            line-height: 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: absolute;
+            color: $todoListTextColor;
+            font: inherit;
+            top: 0;
+            left: 60px;
+            padding: 0;
+            width: 350px;
+            bottom: 0;
+            right: 50px;
+            border: 0;
+            outline: none;
+
+            &::-webkit-input-placeholder {color: $todoListTextDoneColor;}
+            &::-moz-placeholder          {color: $todoListTextDoneColor;}/* Firefox 19+ */
+            &:-moz-placeholder           {color: $todoListTextDoneColor;}/* Firefox 18- */
+            &:-ms-input-placeholder      {color: $todoListTextDoneColor;}
+        }
+
+        &-add {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: transparent;
+            -webkit-appearance: none;
+            border: 0;
+            color : $addButtonColor;
+            text-shadow: 0px 0px $addButtonColor;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+
+    &__item {
+        padding: 5px 40px 5px 60px;
+        text-align: left;
+        line-height: 30px;
+        position: relative;
+        color: $todoListTextColor;
+        border-bottom: 1px solid rgba(0,0,0,0.03);
+        transition: all 0.5s $cubic;
+        background-color: white;
+
+        &.hide {
+            opacity: 0;
+            //transform: scale(0.5);
+            transform: translateY(-20px);
+        }
+
+        &.hide-right {
+            opacity: 0;
+            //transform: scale(0.5);
+            transform: translateX(100%);
+        }
+
+        &:first-child { border-top: 1px solid rgba(0,0,0,0.03); }
+
+        .check {
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 25px;
+            transform: translateY(-50%);
+            font: normal normal normal 14px/1 FontAwesome;
+        }
+
+        .remove {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) scale(0.5);
+            right: 20px;
+            width: 30px;
+            text-align: center;
+            visibility: hidden;
+            opacity: 0;
+            cursor: pointer;
+            color: #e74c3c;
+            transition: all 0.3s $cubic;
+        }
+
+        &:nth-child(2n+1) {
+            background-color: #fefefe;
+        }
+
+        &:hover {
+
+            .remove {
+                transform: translateY(-50%) scale(1);
+                visibility: visible;
+                opacity: 1;
+            }
+
+        }
+
+        &[data-done="true"] {
+            .check {
+                border-color: #2ecc71;
+                background-color: #2ecc71;
+                box-shadow: 0px 0px 25px 5px rgba($green, 0.3);
+
+                &:after {
+                    content: '\f00c';
+                    color: white;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .todolist__item-text {
+                text-decoration: line-through;
+                font-style: italic;
+                color: $todoListTextDoneColor;
+            }
+        }
+    }
+
+    &__container {
+        overflow: auto;
+        max-height: 390px;
+    }
+}
