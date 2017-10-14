@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 
+
 gulp.task('build', function () {
     return gulp.src('src/resources/css/**/*.scss')
         .pipe(sass().on('error', sass.logError))
